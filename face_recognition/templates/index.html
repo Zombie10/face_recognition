@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Servicio de reconocimiento facial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='lodash.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='immutable.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='axios.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Reconocimiento facial</h1>
+
+    <ul class="tabs">
+        <li data-section="train-content">Entrenar</li>
+        <li data-section="recognize-content">Reconocer</li>
+    </ul>
+    <div id="train-content">
+        <h2>Entrenar</h2>
+        <form method="post" id="train">
+            <div class="message">
+
+            </div>
+            <p class="description">Pre-entrenamiento de nuestro servicio. Cargue una imagen que contenga la cara y asígnele el nombre completo para reconocerla más tarde.</p>
+            <div class="form-item">
+                <label for="input-file">Imagen de la cara</label>
+                <input type="file" name="file" id="input-file" accept="image/*"/>
+            </div>
+            <div class="form-item">
+                <label>Nombre completo</label>
+                <input id="name-field" name="name" value="" type="text" placeholder="Nombre completo"/>
+            </div>
+            <div class="form-action">
+                <button type="submit">Comenzar a entrenarlo</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="recognize-content">
+        <h2>Reconocer</h2>
+
+        <form method="post" id="recognize">
+            <div class="message">
+
+            </div>
+            <p class="description">Sube una imagen y te diré quién es la imagen.</p>
+            <div class="form-item">
+                <label for="input-file">Imagen</label>
+                <input type="file" name="file" id="recognize-input-file" accept="image/*"/>
+            </div>
+
+            <div class="form-action">
+                <button type="submit">Reconocerla</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
